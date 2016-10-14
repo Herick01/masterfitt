@@ -20,7 +20,7 @@ class Usuarios extends CI_Controller {
 	*/
 	public function login(){
 		$email = $this->input->post('emailLogin');
-		$senha = $this->input->post('senhaLogin');
+		$senha = md5($this->input->post('senhaLogin'));
 		$this->load->model('usuarios_model');
 		$pessoa = $this->usuarios_model->valida($email, $senha);
 		if($pessoa){
@@ -28,11 +28,13 @@ class Usuarios extends CI_Controller {
 					'logged_in' => TRUE,
 					'id_user' => $pessoa[0]['id'],
 					'user_name' => $pessoa[0]['nome'],
+					'user_nivel' => $pessoa[0]['nivel'],
 					'email_user' => $pessoa[0]['email']
 					));
 			redirect(site_url('alunos'));	
 		} else {
-			$this->load->view('usuarios/index');
+			$dados = array('mensagem' => 'usuario não encontrado' );
+			$this->load->view('usuarios/index', $dados);
 		}
 	}
 
@@ -45,7 +47,7 @@ class Usuarios extends CI_Controller {
 			$dados = array(
 				'nome' => $this->input->post('nomeCadastro'),
 				'email' => $this->input->post('emailCadastro'),
-				'senha' => $this->input->post('senhaCadastro')
+				'senha' => md5($this->input->post('senhaCadastro'))
 			 );
 			$this->load->model('usuarios_model');
 			$this->usuarios_model->add($dados);

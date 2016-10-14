@@ -23,19 +23,13 @@
   <div class="col-lg-2 form-group">
     <h4> CPF: </h4>
     <div class="form-group">
-      <input type="text" maxlength="11" class="form-control" name="CPF" placeholder="CPF" required>
+      <input type="text" maxlength="11" class="form-control" name="cpf" placeholder="CPF" required>
     </div>
   </div>
   <div class="col-lg-8 form-group">
     <h4> Telefone: </h4>
     <div class="form-group">
       <input type="tel" maxlength="10" class="form-control" name="telefone" placeholder="telefone" required>
-    </div>
-  </div>
-  <div class="col-lg-12 form-group">
-    <h4> E-mail: </h4>
-    <div class="form-group">
-      <input type="email" class="form-control" name="email" placeholder="e-mail" required>
     </div>
   </div>
   <div class="col-lg-12 form-group">
@@ -68,6 +62,24 @@
       <input type="text" maxlength="8" class="form-control" name="cep" placeholder="cep" required>
     </div>
   </div>
+  <div class="col-lg-12 form-group">
+    <h4> E-mail: </h4>
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" placeholder="e-mail" required>
+    </div>
+  </div>
+  <div class="col-lg-6 form-group">
+    <h4> Senha: </h4>
+    <div class="form-group">
+      <input class="form-control" id="senhaUser" name="senha" placeholder="Password" type="password" required>
+    </div>
+  </div>
+  <div class="col-lg-6 form-group">
+    <h4> Confirme sua senha: </h4>
+    <div class="form-group">
+      <input class="form-control" name="senha2" placeholder="Password validation" type="password" matches="senhaCadastro" onchange="check(this)" required>
+    </div>
+  </div>
   <div class="row" style="float:right">
   <div class="col-lg-4 col-xs-4 form-group">
     <div class="form-group">
@@ -79,3 +91,14 @@
   </div>
   </div>
 </div>
+
+<script>
+function check(input) {
+  if (input.value != document.getElementById('senhaUser').value) {
+    input.setCustomValidity('As senhas devem ser iguais.');
+  } else {
+    // input is valid -- reset the error message
+    input.setCustomValidity('');
+  }
+}
+</script>

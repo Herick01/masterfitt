@@ -7,7 +7,15 @@
 		public function valida($email, $senha){
 				$this->db->where('email', $email);
 				$this->db->where('senha', $senha);
-				return $this->db->get('usuarios')->result_array();
+				$user = $this->db->get('usuarios')->result_array();
+				if($user){
+					return $user;
+				}else{
+					$this->db->where('email', $email);
+					$this->db->where('senha', $senha);
+					$user = $this->db->get('alunos')->result_array();
+					return $user;
+				}
 		}
 
 		public function getById($id){

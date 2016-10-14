@@ -61,6 +61,7 @@ class Alunos extends CI_Controller {
 		$aluno['cpf'] = $this->input->post('cpf');
 		$aluno['telefone'] = $this->input->post('telefone');
 		$aluno['email'] = $this->input->post('email');
+		$aluno['senha'] = md5($this->input->post('senha'));
 		$aluno['endereco'] = $this->input->post('endereco');
 		$aluno['bairro'] = $this->input->post('bairro');
 		$aluno['estado'] = $this->input->post('estado');

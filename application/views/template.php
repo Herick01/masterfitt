@@ -153,24 +153,41 @@
                     <li class="active">
                         <a href="<?php echo(site_url('treinos')); ?>"><i class="glyphicon glyphicon-home"></i> Para Hoje</a>
                     </li>
+                    
+                    <?php if($this->session->userdata('user_nivel')==1){ ?>
                     <li>
                         <a href="<?php echo(site_url('alunos/listar')); ?>"><i class="glyphicon glyphicon-user"></i> Alunos</a>
                     </li>
+                    <?php
+                    }
+                    ?>
+                    <?php if($this->session->userdata('user_nivel')==1){ ?>
                     <li>
                         <a href="<?php echo(site_url('alunos/cadastrar')); ?>"><i class="glyphicon glyphicon-plus"></i> Novo Aluno</a>
                     </li>
+                    <?php
+                    }
+                    ?>
                     <li>
                         <a href="<?php echo(site_url('avaliacao_fisica/listar')); ?>"><i class="glyphicon glyphicon-heart-empty"></i> Avaliação Física</a>
                     </li>
                     <li>
-                        <a href="<?php echo(site_url('avaliacao_fisica/relatorio')); ?>"><i class="glyphicon glyphicon-stats"></i> Relatório Física</a>
+                        <a href="<?php echo(site_url('avaliacao_fisica/relatorio')); ?>"><i class="glyphicon glyphicon-stats"></i> Relatório Físico</a>
                     </li>
+                    <?php if($this->session->userdata('user_nivel')==1){ ?>
                     <li>
                         <a href="<?php echo(site_url('treinos/cadastrar')); ?>"><i class="glyphicon glyphicon-edit"></i> Gerar Treinos</a>
                     </li>
+                    <?php
+                    }
+                    ?>
+                    <?php if($this->session->userdata('user_nivel')==1){ ?>
                     <li>
                         <a href="bootstrap-grid.html"><i class="glyphicon glyphicon-plus"></i> Cadastrar Treinos</a>
                     </li>
+                    <?php
+                    }
+                    ?>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">

@@ -23,14 +23,18 @@ class Avaliacao_fisica extends CI_Controller {
 		$this->load->model('alunos_model');
 		$this->load->model('usuarios_model');
 		$this->load->model('avaliacao_fisica_model');
-		$pessoas = $this->alunos_model->getAll();
+		if($this->session->userdata('user_nivel')==2){
+			$pessoas = $this->alunos_model->getById($this->session->userdata('id_user'));
+		} else {
+			$pessoas = $this->alunos_model->getAll();
+		}
 		foreach ($pessoas as $pessoa) {
-			$avaliacao = $this->avaliacao_fisica_model->getByAlunoId($pessoa['id']);
-			$opcoes[] = array(
-				'id' => $pessoa['id'],
-				'nome' => $pessoa['nome']." ".$pessoa['sobrenome'],
-				'avaliacao' => $avaliacao,
-				);
+		$avaliacao = $this->avaliacao_fisica_model->getByAlunoId($pessoa['id']);
+		$opcoes[] = array(
+			'id' => $pessoa['id'],
+			'nome' => $pessoa['nome']." ".$pessoa['sobrenome'],
+			'avaliacao' => $avaliacao,
+			);
 		}
 		$dados = array('opcoes' => $opcoes);
 		$this->template->load('template', 'avaliacao_fisica/lista.php', $dados);
@@ -138,7 +142,11 @@ class Avaliacao_fisica extends CI_Controller {
 	{
 		$this->load->model('alunos_model');
 		$this->load->model('avaliacao_fisica_model');
-		$pessoas = $this->alunos_model->getAll();
+		if($this->session->userdata('user_nivel')==2){
+			$pessoas = $this->alunos_model->getById($this->session->userdata('id_user'));
+		} else {
+			$pessoas = $this->alunos_model->getAll();
+		}
 		foreach ($pessoas as $pessoa) {
 			$opcoes[] = array(
 				'nome' => $pessoa['nome'],

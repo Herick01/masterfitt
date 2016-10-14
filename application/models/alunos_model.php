@@ -51,7 +51,7 @@
 		*/
 		public function getById($id){
 			$this->db->where('id', $id);
-			return $this->db->get('alunos')->row_array();
+			return $this->db->get('alunos')->result_array();
 		}
 	}
 ?>

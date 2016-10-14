@@ -6,6 +6,12 @@
         <script type="text/javascript" src="<?php echo(base_url('assets/js/bootstrap.min.js')); ?>"></script>
         <link href="<?php echo(base_url('assets/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" type="text/css">
         <link href="<?php echo(base_url('assets/css/estilo-inicial.css')); ?>" rel="stylesheet" type="text/css">
+        <script>
+            if (<?php echo $mensagem!= null ?>) {
+            alert('<?php echo $mensagem ?>');
+        }
+        </script>
+        
     </head>
     <body>
     	<div class="section">
@@ -106,14 +112,15 @@
     </body>
 </html>
 
-
 <script>
-function check(input) {
-  if (input.value != document.getElementById('senhaCadastro').value) {
-    input.setCustomValidity('As senhas devem ser iguais.');
-  } else {
-    // input is valid -- reset the error message
-    input.setCustomValidity('');
-  }
-}
+    function check(input) {
+        if (input.value != document.getElementById('senhaCadastro').value) {
+            input.setCustomValidity('As senhas devem ser iguais.');
+        } else {
+            // input is valid -- reset the error message
+            input.setCustomValidity('');
+        }
+    }
+        
+
 </script>

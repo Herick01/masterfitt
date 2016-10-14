@@ -10,7 +10,7 @@ class Treinos extends CI_Controller {
 
 	public function cadastrar(){
 		$this->load->model('alunos_model');
-		$pessoas = $this->alunos_model->buscaTodos();
+		$pessoas = $this->alunos_model->getAll();
 		foreach ($pessoas as $pessoa) {
 			$alunos[] = array(
 				'id' => $pessoa['id'],
