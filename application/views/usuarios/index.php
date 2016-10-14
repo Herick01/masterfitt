@@ -1,194 +1,119 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>MasterFitt</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css') ?>">
-  <!-- Bootstrap Core CSS -->
-    <link href="<?php echo(base_url('assets/css/bootstrap.min.css')); ?>" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="<?php echo(base_url('assets/css/sb-admin.css')); ?>" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="<?php echo(base_url('assets/css/plugins/morris.css')); ?>" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="<?php echo(base_url('assets/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" type="text/css">
-</head>
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <ul class="nav navbar-left top-nav">
-      <li class="navbar-header ">
-        <a  href=<?php base_url()?>><font face="Cooper Black" size="6"><font color="#467fc5"> Master</font><font color="#ffffff"> Fitt</font></font></a>
-      </li>
-    </ul>
-    <ul class="nav navbar-right top-nav">
-      <li class="navbar-header">
-          <a type="button" data-toggle="modal" data-target=".bs-example-modal-sm"><font size="4"> Log-in <i class="glyphicon glyphicon-log-in"></i></font></a>
-      </li>
-    </ul>
-  </nav>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color:#467fc5 ">
-      <div class="container">
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-        <h1><font face="Cooper Black" color="#ffffff">Master Fitt</font></h1>
-        <p>O sistema <b>Master Fitt</b> foi desenvolvido visando a real necessidade das academias. Informatizando e facilitando processos básicos e rotineiros o Master Fitt busca abranger aquilo que é indispensável de forma organizada e objetiva, divergindo de outros sistemas que muitas vezes possuem diversas funcionalidades que não são necessárias.</p>
-        <p><a class="btn btn-default btn-lg" href="#" role="button">Ver mais »</a></p>
-        </div>
-        <div class="form-group">
-        <h4><font face="Cooper Black"> Cadastro </font></h4>
-        <?php
-          echo form_open('usuarios/cadastro');
-        ?>
-          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
-          <?php 
-            echo form_input(array(
-              'name' => 'cadastroNome',
-              'placeholder' => 'Nome',
-              'class' => 'form-control',
-              'maxlength' => 50));
-            echo form_error('cadastroNome');
-          ?>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
-          <?php 
-            echo form_input(array(
-              'name' => 'cadastroEmail',
-              'placeholder' => 'E-mail',
-              'class' => 'form-control',
-              'maxlength' => 50));
-            echo form_error('cadastroEmail');
-          ?>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 form-group">
-          <?php 
-            echo form_password(array(
-              'name' => 'cadastroSenha',
-              'placeholder' => 'Senha',
-              'class' => 'form-control',
-              'maxlength' => 50));
-            echo form_error('cadastroSenha');
-          ?>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 form-group">
-          <?php 
-            echo form_password(array(
-              'name' => 'confirmaSenha',
-              'placeholder' => 'Confirme sua senha',
-              'class' => 'form-control',
-              'maxlength' => 50));
-            echo form_error('confirmaSenha');
-          ?>
-          </div>
-          <div class="container-fluid">
-            <div style="float:right">
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-group">
-                <?php
-                echo form_button(array(
-                  'content' => 'Salvar',
-                  'class' => 'btn btn-success',
-                  'type' => 'submit'));
-                echo form_close();
-                ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="container-fluid" style="background-color:#ffffff">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-12-4 col-md-4 col-xs-12 col-xs-12">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div>
-        <div class="col-12-4 col-md-4 col-xs-12 col-xs-12">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-       </div>
-        <div class="col-12-4 col-md-4 col-xs-12 col-xs-12">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div>
-      </div>
-      <footer>  
-        <p>© 2016 Company, Inc.</p>
-      </footer>
-    </div> <!-- /container -->
-
-    <!-- jQuery -->
-    <script src="<?php echo(base_url('assets/js/jquery.js')); ?>"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo(base_url('assets/js/bootstrap.min.js')); ?>"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="<?php echo(base_url('assets/js/plugins/morris/raphael.min.js')); ?>"></script>
-    <script src="<?php echo(base_url('assets/js/plugins/morris/morris.min.js')); ?>"></script>
-    <script src="<?php echo(base_url('assets/js/plugins/morris/morris-data.js')); ?>"></script>
-</body>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="<?php echo(base_url('assets/js/jquery.js')); ?>"></script>
+        <script type="text/javascript" src="<?php echo(base_url('assets/js/bootstrap.min.js')); ?>"></script>
+        <link href="<?php echo(base_url('assets/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" type="text/css">
+        <link href="<?php echo(base_url('assets/css/estilo-inicial.css')); ?>" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    	<div class="section">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col-md-7">
+    					<div class="jumbotron" style="background-color: #aaaaaa">
+    						<h1 class="text-center" style="font-family: Cooper Black">Master Fitt</h1>
+    						<p class="text-left text-muted">O sistema Master Fitt foi desenvolvido visando a real necessidade das academias. Informatizando e facilitando processos básicos e rotineiros o Master Fitt busca abranger aquilo que é indispensável de forma organizada e objetiva, divergindo de outros sistemas que muitas vezes possuem diversas funcionalidades que não são necessárias.
+    						</p>  
+    					</div>
+    					<img src="<?php echo(base_url('assets/img/academia.jpg')); ?>" class="hidden-xs hidden-sm img-responsive">
+    				</div>
+    				<div class="col-md-4">
+                        <hr>
+        					<h1 class="text-center">Login</h1>
+                            <?php echo form_open('usuarios/login'); ?>
+        						<div class="form-group">
+        							<label class="control-label">Email</label>
+        							<input type="email" class="form-control" name="emailLogin" placeholder="Email" required>
+        						</div>
+        						<div class="form-group">
+        							<label class="control-label">Password</label>
+        							<input type="password" class="form-control" name="senhaLogin" placeholder="Password" required>
+        						</div>
+        						<div class="form-group">
+        							<button type="submit" class="btn btn-block btn-default">Entrar</button>
+        						</div>
+        					</form>
+                        </hr>
+						<hr>
+							<h1 class="text-center">Sign up</h1>
+							<?php echo form_open('usuarios/cadastro'); ?>
+								<div class="form-group">
+									<label class="control-label">Nome</label>
+									<input class="form-control" name="nomeCadastro" placeholder="Name" type="text" required>
+								</div>
+								<div class="form-group">
+									<label class="control-label">E-mail</label>
+									<input class="form-control" name="emailCadastro" placeholder="E-mail" type="email" required>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Senha</label>
+									<input class="form-control" id="senhaCadastro" name="senhaCadastro" placeholder="Password" type="password" required>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Confirme sua senha
+									</label>
+									<input class="form-control" name="senhaCadastro2" placeholder="Password validation" type="password" matches="senhaCadastro" onchange="check(this)" required>
+								</div>
+								<button type="submit" class="btn btn-block btn-default">Cadastro
+								</button>
+							</form>
+						<hr>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<footer class="section section-primary">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    					<p>CodeStar 2016 - Três Cachoeiras/RS
+    					<br>Fone:
+    					<br>(51) 8150-0635 WhatsApp
+    					<br>E-mail:
+    					<br>herick.mengue@hotmail.com
+    					</p>
+    				</div>
+    				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    					<h1 class="text-right">Siga-nos</h1>
+    					<p class="text-right">Acompanhe nas redes Sociais<br>
+    					</p>
+    					<div class="row">
+    						<div class="text-right">
+    							<a href="https://www.linkedin.com/in/herick-mengue" target="_blank">
+                                    <i class="fa fa-2x fa-fw fa-linkedin text-inverse">
+                                    </i>
+                                </a>
+                                <a href="https://twitter.com/HerickMengue" target="_blank">
+    								<i class="fa fa-2x fa-fw fa-twitter text-inverse">
+    								</i>
+    							</a>
+    							<a href="https://www.facebook.com/herick.cm" target="_blank">
+    								<i class="fa fa-2x fa-fw fa-facebook text-inverse">
+    								</i>
+    							</a>
+    							<a href="https://github.com/Herick01"  target="_blank">
+    								<i class="fa fa-2x fa-fw fa-github text-inverse">
+    								</i>
+    							</a>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</footer>
+    </body>
 </html>
 
 
-<!--modal de login-->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color:#aaaaaa">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-          <h4 class="modal-title" id="myModalLabel"><b>Entrar</b></h4>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>
-        </div>
-      </div>
-      <div class="modal-body">
-      <?php
-        echo form_open('usuarios/login');
-        ?>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-        <?php 
-          echo form_input(array(
-            'name' => 'email',
-            'placeholder' => 'E-mail',
-            'class' => 'form-control',
-            'maxlength' => 50));
-          echo form_error('email');
-        ?>
-        </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
-        <?php 
-          echo form_password(array(
-            'name' => 'senha',
-            'placeholder' => 'Senha',
-            'class' => 'form-control',
-            'maxlength' => 50));
-          echo form_error('senha');
-        ?>
-        </div>
-        <div class="container-fluid">
-        <div style="float:right">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-group">
-            <?php
-            echo form_button(array(
-              'content' => 'Entrar',
-              'class' => 'btn btn-success',
-              'type' => 'submit'));
-            echo form_close();
-            ?>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<script>
+function check(input) {
+  if (input.value != document.getElementById('senhaCadastro').value) {
+    input.setCustomValidity('As senhas devem ser iguais.');
+  } else {
+    // input is valid -- reset the error message
+    input.setCustomValidity('');
+  }
+}
+</script>

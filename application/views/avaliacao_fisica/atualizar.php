@@ -5,31 +5,15 @@
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
       <h4> Peso: (Kg)</h4>
-      <?php 
-        echo form_input(array(
-          'type' => 'number',
-          'min' => '0',
-          'name' => 'peso',
-          'value' => set_value('peso'),
-          'placeholder' => 'weight',
-          'class' => 'form-control',
-          'maxlength' => 50));
-        echo form_error('peso');
-      ?>
+      <div class="form-group">
+        <input type="number" class="form-control" min="0" step="0.100" name="peso" placeholder="peso" required>
+      </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
       <h4> Altura: (mts)</h4>
-      <?php 
-        echo form_input(array(
-          'type' => 'number',
-          'value' => set_value('altura'),
-          'step' => 0.1,
-          'min' => 0,
-          'name' => 'altura',
-          'placeholder' => 'height',
-          'class' => 'form-control'));
-        echo form_error('altura');
-      ?>
+      <div class="form-group">
+        <input type="number" class="form-control" min="0" step="0.01" name="altura" placeholder="altura" required>
+      </div>
     </div>
   </div>
   

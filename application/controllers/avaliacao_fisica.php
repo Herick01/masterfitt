@@ -53,20 +53,15 @@ class Avaliacao_fisica extends CI_Controller {
 	*/
 	public function novo()
 	{
-		$this->formRules();
-		$sucesso = $this->form_validation->run();
 		$avaliacao_fisica = $this->recuperaDados();
 		$avaliacao_fisica['idAluno'] = $this->uri->segment(3);
-		if($sucesso){
-			$avaliacao_fisica['imc'] = ($avaliacao_fisica['peso']/($avaliacao_fisica['altura']*$avaliacao_fisica['altura']));
-			$avaliacao_fisica['data'] = date('y/m/d');
-			$this->load->model('avaliacao_fisica_model');
-			$dados = array('avaliacao' => $avaliacao_fisica);
-			$this->avaliacao_fisica_model->add($dados);
-			redirect('alunos/index');
-		}else{
-			$this->cadastrar();
-		}
+		$avaliacao_fisica['idUsuario'] = $this->session->userdata('id_user');
+		$avaliacao_fisica['imc'] = ($avaliacao_fisica['peso']/($avaliacao_fisica['altura']*$avaliacao_fisica['altura']));
+		$avaliacao_fisica['data'] = date('y/m/d');
+		$this->load->model('avaliacao_fisica_model');
+		$dados = array('avaliacao' => $avaliacao_fisica);
+		$this->avaliacao_fisica_model->add($dados);
+		redirect('alunos/index');
 	}
 
 	/*
@@ -120,24 +115,18 @@ class Avaliacao_fisica extends CI_Controller {
 	*/
 	public function atualizacao()
 	{
-		$this->form_validation->set_rules('altura', 'altura', 'required');
-		$this->form_validation->set_rules('peso', 'peso', 'required');
 		$this->load->model('avaliacao_fisica_model');
 		$alunoId = $this->uri->segment(3);
 		$avaliacao = array('avaliacao' => $this->avaliacao_fisica_model->getToRefresh($alunoId));
-		$sucesso = $this->form_validation->run();
-		if($sucesso){
-			$avaliacao['avaliacao']['id'] = null;
-			$avaliacao['avaliacao']['peso'] = $this->input->post('peso');
-			$avaliacao['avaliacao']['altura'] = $this->input->post('altura');
-			$avaliacao['avaliacao']['imc'] = ($avaliacao['avaliacao']['peso']/($avaliacao['avaliacao']['altura']*$avaliacao['avaliacao']['altura']));
-			$avaliacao['avaliacao']['data'] = date('y/m/d');
-			$this->load->model('avaliacao_fisica_model');
-			$this->avaliacao_fisica_model->add($avaliacao);
-			redirect('alunos/index');
-		}else{
-			$this->cadastrar();
-		}
+		$avaliacao['avaliacao']['id'] = null;
+		$avaliacao['avaliacao']['idUsuario'] = $this->session->userdata('id_user');
+		$avaliacao['avaliacao']['peso'] = $this->input->post('peso');
+		$avaliacao['avaliacao']['altura'] = $this->input->post('altura');
+		$avaliacao['avaliacao']['imc'] = ($avaliacao['avaliacao']['peso']/($avaliacao['avaliacao']['altura']*$avaliacao['avaliacao']['altura']));
+		$avaliacao['avaliacao']['data'] = date('y/m/d');
+		$this->load->model('avaliacao_fisica_model');
+		$this->avaliacao_fisica_model->add($avaliacao);
+		redirect('alunos/index');
 	}
 
 	

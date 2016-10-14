@@ -4,152 +4,78 @@
   ?>
   <div class="col-lg-12 form-group">
     <h4> Nome: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'nome',
-        'value' => set_value("nome"),
-        'placeholder' => 'Name',
-        'class' => 'form-control',
-        'maxlength' => 50));
-      echo form_error('nome');
-    ?>
+    <div class="form-group">
+      <input type="text" class="form-control" name="nome" placeholder="nome" required>
+    </div>
   </div>
   <div class="col-lg-12 form-group">
     <h4> Sobrenome: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'sobrenome',
-        'value' => set_value("sobrenome"),
-        'placeholder' => 'lastnname',
-        'class' => 'form-control',
-        'maxlength' => 50));
-      echo form_error('sobrenome');
-    ?>
+    <div class="form-group">
+      <input type="text" class="form-control" name="sobrenome" placeholder="sobrenome" required>
+    </div>
   </div>
   <div class="col-lg-2 form-group">
     <h4> Idade: </h4>
-    <?php 
-      echo form_input(array(
-        'type' => 'number',
-        'value' => set_value("idade"),
-        'min' => 0,
-        'name' => 'idade',
-        'placeholder' => 'age',
-        'class' => 'form-control'));
-      echo form_error('idade');
-    ?>
+    <div class="form-group">
+      <input type="number" min="0" class="form-control" name="idade" placeholder="idade" required>
+    </div>
   </div>
   <div class="col-lg-2 form-group">
     <h4> CPF: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'cpf',
-        'value' => set_value("cpf"),
-        'placeholder' => 'cpf',
-        'class' => 'form-control',
-        'maxlength' => 11));
-      echo form_error('cpf');
-    ?>
+    <div class="form-group">
+      <input type="text" maxlength="11" class="form-control" name="CPF" placeholder="CPF" required>
+    </div>
   </div>
   <div class="col-lg-8 form-group">
     <h4> Telefone: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'telefone',
-        'value' => set_value("telefone"),
-        'placeholder' => 'phone',
-        'class' => 'form-control',
-        'maxlength' => 50));
-      echo form_error('telefone');
-    ?>
+    <div class="form-group">
+      <input type="tel" maxlength="10" class="form-control" name="telefone" placeholder="telefone" required>
+    </div>
   </div>
   <div class="col-lg-12 form-group">
     <h4> E-mail: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'email',
-        'value' => set_value("email"),
-        'placeholder' => 'e-mail',
-        'class' => 'form-control',
-        'maxlength' => 50));
-      echo form_error('email');
-    ?>
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" placeholder="e-mail" required>
+    </div>
   </div>
   <div class="col-lg-12 form-group">
     <h4> Endereço: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'endereco',
-        'value' => set_value("endereco"),
-        'placeholder' => 'address',
-        'class' => 'form-control',
-        'maxlength' => 100));
-      echo form_error('endereco');
-    ?>
+    <div class="form-group">
+      <input type="text" maxlength="100" class="form-control" name="endereco" placeholder="endereço" required>
+    </div>
   </div>
   <div class="col-lg-12 form-group">
     <h4> Bairro: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'bairro',
-        'value' => set_value("bairro"),
-        'placeholder' => 'district',
-        'class' => 'form-control',
-        'maxlength' => 100));
-      echo form_error('bairro');
-    ?>
+    <div class="form-group">
+      <input type="text" maxlength="100" class="form-control" name="bairro" placeholder="bairro" required>
+    </div>
   </div>
   <div class="col-lg-2 form-group">
     <h4> Estado: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'estado',
-        'value' => set_value("estado"),
-        'placeholder' => 'UF',
-        'class' => 'form-control',
-        'maxlength' => 2));
-      echo form_error('estado');
-    ?>
+    <div class="form-group">
+      <input type="text" maxlength="2" class="form-control" name="estado" placeholder="UF" required>
+    </div>
   </div>
   <div class="col-lg-7 form-group">
     <h4> Cidade: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'cidade',
-        'value' => set_value("cidade"),
-        'placeholder' => 'city',
-        'class' => 'form-control',
-        'maxlength' => 100));
-      echo form_error('cidade');
-    ?>
+    <div class="form-group">
+      <input type="text" maxlength="100" class="form-control" name="cidade" placeholder="cidade" required>
+    </div>
   </div>
   <div class="col-lg-3 form-group">
     <h4> Cep: </h4>
-    <?php 
-      echo form_input(array(
-        'name' => 'cep',
-        'value' => set_value("cep"),
-        'placeholder' => 'Zip Code',
-        'class' => 'form-control',
-        'maxlength' => 8));
-      echo form_error('cep');
-    ?>
+    <div class="form-group">
+      <input type="text" maxlength="8" class="form-control" name="cep" placeholder="cep" required>
+    </div>
   </div>
   <div class="row" style="float:right">
   <div class="col-lg-4 col-xs-4 form-group">
-    <?php
-      echo form_button(array(
-        'content' => 'Entrar',
-        'class' => 'btn btn-success',
-        'type' => 'submit'));
-      echo form_close();
-    ?>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Entrar</button>
+    </div>
   </div>
   <div class="col-sm-4 col-xs-4 form-group">
     <a class="btn btn-default" href="<?php echo(site_url('alunos/listar'));?>">Cancelar</a>
   </div>
   </div>
 </div>
-
-<!--
-cep

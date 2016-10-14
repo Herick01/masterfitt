@@ -71,6 +71,7 @@
 		public function getToReport($idAluno){
 			$this->db->where('idAluno', $idAluno);
 			$this->db->order_by("id", "asc");
+			$this->db->limit(6);
 			return $this->db->get('avaliacoes')->result_array();
 		}
 

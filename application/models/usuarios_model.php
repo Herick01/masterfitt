@@ -14,5 +14,9 @@
 			$this->db->where('id', $id);
 			return $this->db->get('usuarios')->row_array();
 		}
+
+		public function add($user){
+			$this->db->insert('usuarios', $user);
+		}
 	}
 ?>

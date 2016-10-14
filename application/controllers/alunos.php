@@ -34,52 +34,23 @@ class Alunos extends CI_Controller {
 	}
 
 	public function alterar(){
-		$this->formRules();
-		$sucesso = $this->form_validation->run();
 		$aluno = $this->recuperaDados();
 		$aluno['id'] = $this->uri->segment(3);
-		if($sucesso){
-			$this->load->model('alunos_model');
-			$this->alunos_model->update($aluno);
-			$this->listar();	
-		}else{
-			$dados = array('aluno' => $aluno);
-			$this->template->load('template', 'aluno/editar.php', $dados);
-		}
+		$this->load->model('alunos_model');
+		$this->alunos_model->update($aluno);
+		$this->listar();	
 	}
 	public function novo(){
-		$this->formRules();
-		$sucesso = $this->form_validation->run();
 		$aluno = $this->recuperaDados();
-		if($sucesso){
-			$this->load->model('alunos_model');
-			$this->alunos_model->add($aluno);
-			$this->listar();	
-		}else{
-			$dados = array('aluno' => $aluno);
-			$this->template->load('template', 'aluno/cadastro.php', $dados);
-		}
+		$this->load->model('alunos_model');
+		$this->alunos_model->add($aluno);
+		$this->listar();	
 	}
 			
 
 	public function logOut(){
 		$this->session->sess_destroy();
 		redirect('usuarios/index');
-	}
-
-	private function formRules(){
-		$this->form_validation->set_rules('nome', 'nome', 'required');
-		$this->form_validation->set_rules('sobrenome', 'sobrenome', 'required');
-		$this->form_validation->set_rules('idade', 'idade', 'required');
-		$this->form_validation->set_rules('cpf', 'cpf', 'required');
-		$this->form_validation->set_rules('telefone', 'telefone', 'required');
-		$this->form_validation->set_rules('email', 'email', 'required');
-		$this->form_validation->set_rules('endereco', 'endereco', 'required');
-		$this->form_validation->set_rules('bairro', 'bairro', 'required');
-		$this->form_validation->set_rules('estado', 'estado', 'required');
-		$this->form_validation->set_rules('cidade', 'cidade', 'required');
-		$this->form_validation->set_rules('cep', 'cep', 'required');
-		$this->form_validation->set_error_delimiters("<h5 class='alert alert-danger'>","</h5>");
 	}
 
 	private function recuperaDados(){
