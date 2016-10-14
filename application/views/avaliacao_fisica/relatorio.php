@@ -2,6 +2,7 @@
  <?php 
 foreach ($opcoes as $opcao) 
 {
+    if($opcao['avaliacao']!=null && sizeof($opcao['avaliacao'])>=2){
 ?>
     <h4><b> <?php echo $opcao['nome']; ?> </b></h4>
     <canvas id="<?php echo $opcao['nome']; ?>" width="100%" height="50%"></canvas>
@@ -49,6 +50,7 @@ foreach ($opcoes as $opcao)
     }
 });
 </script>
-<?php 
+<?php
+} 
 }
 ?>

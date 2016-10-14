@@ -42,6 +42,8 @@
 		metodo que retorna todos alunos do banco de dados
 		*/
 		public function getAll(){
+			$this->db->group_by('nome');
+			$this->db->group_by('nome', 'desc');
 			return $this->db->get('alunos')->result_array();
 		}
 

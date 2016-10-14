@@ -12,7 +12,7 @@
     <div class="col-lg-6 col-xs-6 form-group">
       <h4> Altura: (mts)</h4>
       <div class="form-group">
-        <input type="number" class="form-control" min="0" step="0.01" value="<?php echo $avaliacao['altura']; ?>" name="altura" placeholder="altura" required>
+        <input type="number" class="form-control" min="0" step="0.1" value="<?php echo $avaliacao['altura']; ?>" name="altura" placeholder="altura" required>
       </div>
     </div>
     <div class="col-lg-12 col-xs-12 form-group">

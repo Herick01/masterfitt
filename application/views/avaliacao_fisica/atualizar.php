@@ -6,13 +6,13 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
       <h4> Peso: (Kg)</h4>
       <div class="form-group">
-        <input type="number" class="form-control" min="0" step="0.100" name="peso" placeholder="peso" required>
+        <input type="number" class="form-control" min="0" step="0.1" name="peso" placeholder="peso" required>
       </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
       <h4> Altura: (mts)</h4>
       <div class="form-group">
-        <input type="number" class="form-control" min="0" step="0.01" name="altura" placeholder="altura" required>
+        <input type="number" class="form-control" min="0" step="0.1" name="altura" placeholder="altura" required>
       </div>
     </div>
   </div>

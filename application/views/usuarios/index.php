@@ -25,7 +25,7 @@
     					</div>
     					<img src="<?php echo(base_url('assets/img/academia.jpg')); ?>" class="hidden-xs hidden-sm img-responsive">
     				</div>
-    				<div class="col-md-4">
+    				<div class="col-md-5">
                         <hr>
         					<h1 class="text-center">Login</h1>
                             <?php echo form_open('usuarios/login'); ?>
