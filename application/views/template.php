@@ -134,12 +134,33 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <?php echo $this->session->userdata('user_name'); ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        <?php  
+                            if($this->session->userdata('user_nivel')== 1 ){
+                        ?>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-user"></i> Perfil</a>
+                            <a href="<?php echo(site_url('usuarios/perfil')); ?>"><i class="glyphicon glyphicon-user"></i> Perfil</a>
                         </li>
+                        <?php
+                        }
+                        ?>
+                        <?php  
+                            if($this->session->userdata('user_nivel')== 2 ){
+                        ?>
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-envelope"></i> Notificações</a>
+                            <a href="<?php echo(site_url('treinadores/perfil')); ?>"><i class="glyphicon glyphicon-user"></i> Perfil</a>
                         </li>
+                        <?php
+                        }
+                        ?>
+                        <?php  
+                            if($this->session->userdata('user_nivel')== 3 ){
+                        ?>
+                        <li>
+                            <a href="<?php echo(site_url('alunos/perfil')); ?>"><i class="glyphicon glyphicon-user"></i> Perfil</a>
+                        </li>
+                        <?php
+                        }
+                        ?>
                         <li class="divider"></li>
                         <li>
                             <a href="<?php echo (site_url('usuarios/logOut')); ?>"><i class="glyphicon glyphicon-off"></i> Log Out</a>
@@ -153,8 +174,22 @@
                     <li class="active">
                         <a href="<?php echo(site_url('treinos')); ?>"><i class="glyphicon glyphicon-home"></i> Para Hoje</a>
                     </li>
-                    
                     <?php if($this->session->userdata('user_nivel')==1){ ?>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#pessoas"><i class="glyphicon glyphicon-user"></i> Pessoas <b class="caret"></b></a>
+                        <ul id="pessoas" class="collapse">
+                            <li>
+                                <a href="<?php echo(site_url('alunos/listar')); ?>"><i class="glyphicon glyphicon-user"></i> Alunos</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo(site_url('treinadores/listar')); ?>"><i class="glyphicon glyphicon-user"></i> Treinadores</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                    <?php if($this->session->userdata('user_nivel')==2){ ?>
                     <li>
                         <a href="<?php echo(site_url('alunos/listar')); ?>"><i class="glyphicon glyphicon-user"></i> Alunos</a>
                     </li>
@@ -163,7 +198,15 @@
                     ?>
                     <?php if($this->session->userdata('user_nivel')==1){ ?>
                     <li>
-                        <a href="<?php echo(site_url('alunos/cadastrar')); ?>"><i class="glyphicon glyphicon-plus"></i> Novo Aluno</a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#cadastros"><i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-user"></i> Cadastrar pessoas <b class="caret"></b></a>
+                        <ul id="cadastros" class="collapse">
+                            <li>
+                                <a href="<?php echo(site_url('alunos/cadastrar')); ?>"><i class="glyphicon glyphicon-plus"></i> Aluno</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo(site_url('treinadores/cadastrar')); ?>"><i class="glyphicon glyphicon-plus"></i> Treinadores</a>
+                            </li>
+                        </ul>
                     </li>
                     <?php
                     }
@@ -174,7 +217,7 @@
                     <li>
                         <a href="<?php echo(site_url('avaliacao_fisica/relatorio')); ?>"><i class="glyphicon glyphicon-stats"></i> Relatório Físico</a>
                     </li>
-                    <?php if($this->session->userdata('user_nivel')==1){ ?>
+                    <?php if($this->session->userdata('user_nivel')==1||$this->session->userdata('user_nivel')==2){ ?>
                     <li>
                         <a href="<?php echo(site_url('treinos/cadastrar')); ?>"><i class="glyphicon glyphicon-edit"></i> Gerar Treinos</a>
                     </li>
@@ -188,23 +231,6 @@
                     <?php
                     }
                     ?>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

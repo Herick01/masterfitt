@@ -24,18 +24,15 @@
         <div class="col-lg-12 col-xs-12 form-group">
           <h4> Exercício: </h4>
           <div class="row">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <input type="checkbox" aria-label="...">
-                </span>
-                    <select class="form-control" name="idAluno">
-                    <?php foreach ($exercicios as $exericio)
-                    {
-                    ?>
-                        <option value="<?php echo $exericio['id']?>"> <?php echo $exericio['nome']; ?> </option>
-                    <?php
-                    }
-                    ?>
+            <div class="form-group">
+                <select class="form-control" name="idAluno">
+                  <?php foreach ($exercicios as $exericio)
+                  {
+                  ?>
+                    <option value="<?php echo $exericio['id']?>"> <?php echo $exericio['nome']; ?> </option>
+                  <?php
+                  }
+                  ?>
                 </select>
             </div><!-- /input-group -->
           
@@ -55,7 +52,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Repetições:</h4>
+          <h4> Rep.:</h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -67,7 +64,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Quantidade: </h4>
+          <h4> Quant.: </h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -94,6 +91,18 @@
       </div>
     </div>
 </div>
+</div>
+<div class="col-lg-2">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#aaaaaa">
+      <h4 class="panel-title">Segunda Feira</h4>
+    </div>
+    <div class="panel-body">
+      <div class="col-lg-12 col-xs-12 form-group">
+        Exercícios:
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-lg-4">
     <div class="panel panel-default">
@@ -128,7 +137,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Repetições:</h4>
+          <h4> Rep.:</h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -140,7 +149,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Quantidade: </h4>
+          <h4> Quant.: </h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -166,6 +175,19 @@
         </div>
       </div>
     </div>
+</div>
+</div>
+<div class="col-lg-2">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#aaaaaa">
+      <h4 class="panel-title">Terça Feira</h4>
+    </div>
+    <div class="panel-body">
+      <div class="col-lg-12 col-xs-12 form-group">
+        Exercícios:
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 <div class="col-lg-4">
@@ -201,7 +223,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Repetições:</h4>
+          <h4> Rep.:</h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -213,7 +235,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Quantidade: </h4>
+          <h4> Quant.: </h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -240,6 +262,18 @@
       </div>
     </div>
 </div>
+</div>
+<div class="col-lg-2">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#aaaaaa">
+      <h4 class="panel-title">Quarta Feira</h4>
+    </div>
+    <div class="panel-body">
+      <div class="col-lg-12 col-xs-12 form-group">
+        Exercícios:
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-lg-4">
     <div class="panel panel-default">
@@ -274,7 +308,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Repetições:</h4>
+          <h4> Rep.:</h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -286,7 +320,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Quantidade: </h4>
+          <h4> Quant.: </h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -313,6 +347,18 @@
       </div>
     </div>
 </div>
+</div>
+<div class="col-lg-2">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#aaaaaa">
+      <h4 class="panel-title">Quinta Feira</h4>
+    </div>
+    <div class="panel-body">
+      <div class="col-lg-12 col-xs-12 form-group">
+        Exercícios:
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-lg-4">
     <div class="panel panel-default">
@@ -347,7 +393,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Repetições:</h4>
+          <h4> Rep.:</h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -359,7 +405,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Quantidade: </h4>
+          <h4> Quant.: </h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -386,6 +432,18 @@
       </div>
     </div>
 </div>
+</div>
+<div class="col-lg-2">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#aaaaaa">
+      <h4 class="panel-title">Sexta Feira</h4>
+    </div>
+    <div class="panel-body">
+      <div class="col-lg-12 col-xs-12 form-group">
+        Exercícios:
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-lg-4">
     <div class="panel panel-default">
@@ -420,7 +478,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Repetições:</h4>
+          <h4> Rep.:</h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -432,7 +490,7 @@
           ?>
         </div>
         <div class="col-lg-4 col-xs-4 form-group">
-          <h4> Quantidade: </h4>
+          <h4> Quant.: </h4>
           <?php 
             echo form_input(array(
               'type' => 'number',
@@ -458,5 +516,17 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
+<div class="col-lg-2">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#aaaaaa">
+      <h4 class="panel-title">Sabado</h4>
+    </div>
+    <div class="panel-body">
+      <div class="col-lg-12 col-xs-12 form-group">
+        Exercícios:
+      </div>
+    </div>
+  </div>
 </div>

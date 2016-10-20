@@ -23,7 +23,7 @@ class Avaliacao_fisica extends CI_Controller {
 		$this->load->model('alunos_model');
 		$this->load->model('usuarios_model');
 		$this->load->model('avaliacao_fisica_model');
-		if($this->session->userdata('user_nivel')==2){
+		if($this->session->userdata('user_nivel')==3){
 			$pessoas = $this->alunos_model->getById($this->session->userdata('id_user'));
 		} else {
 			$pessoas = $this->alunos_model->getAll();
@@ -142,7 +142,7 @@ class Avaliacao_fisica extends CI_Controller {
 	{
 		$this->load->model('alunos_model');
 		$this->load->model('avaliacao_fisica_model');
-		if($this->session->userdata('user_nivel')==2){
+		if($this->session->userdata('user_nivel')==3){
 			$pessoas = $this->alunos_model->getById($this->session->userdata('id_user'));
 		} else {
 			$pessoas = $this->alunos_model->getAll();

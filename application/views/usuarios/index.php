@@ -49,6 +49,10 @@
 									<label class="control-label">Nome</label>
 									<input class="form-control" name="nomeCadastro" placeholder="Name" type="text" required>
 								</div>
+                                <div class="form-group">
+                                    <label class="control-label">Sobrnome</label>
+                                    <input class="form-control" name="sobrenomeCadastro" placeholder="Last Name" type="text" required>
+                                </div>
 								<div class="form-group">
 									<label class="control-label">E-mail</label>
 									<input class="form-control" name="emailCadastro" placeholder="E-mail" type="email" required>

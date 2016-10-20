@@ -31,7 +31,7 @@ foreach ($opcoes as $opcao)
                         ?>
                     ],
                 backgroundColor: [
-                    'rgb(180, 255, 180)'
+                    'rgb(180, 255, 180)',
                 ],
                 borderColor: [
                     'rgb(100, 200, 100)'

@@ -55,5 +55,11 @@
 			$this->db->where('id', $id);
 			return $this->db->get('alunos')->result_array();
 		}
+
+		public function getBySearch($busca){
+			$this->db->like('nome', $busca);
+			$alunos = $this->db->get('alunos')->result_array();
+			return $alunos;
+		}
 	}
 ?>

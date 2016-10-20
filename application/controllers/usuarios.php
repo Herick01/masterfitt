@@ -14,6 +14,13 @@ class Usuarios extends CI_Controller {
 		$this->load->view('usuarios/index');
 	}
 
+	public function perfil(){
+		$this->load->model('usuarios_model');
+		$usuarios = $this->usuarios_model->getById($this->session->userdata('id_user'));
+		$dados = array('usuarios' => $usuarios);
+		$this->template->load('template', 'usuarios/perfil.php', $dados);
+	}
+
 	/*
 	metodo que inicia a sessão de usuário e
 	redireciona o mesmo para a pagina administrativa
@@ -46,6 +53,7 @@ class Usuarios extends CI_Controller {
 	public function cadastro(){
 			$dados = array(
 				'nome' => $this->input->post('nomeCadastro'),
+				'sobrenome' => $this->input->post('sobrenomeCadastro'),
 				'email' => $this->input->post('emailCadastro'),
 				'senha' => md5($this->input->post('senhaCadastro'))
 			 );

@@ -8,12 +8,26 @@ class Alunos extends CI_Controller {
 		$this->listar();
 	}
 
+	public function perfil(){
+		$this->load->model('alunos_model');
+		$alunos = $this->alunos_model->getById($this->session->userdata('id_user'));
+		$dados = array('alunos' => $alunos);
+		$this->template->load('template', 'aluno/perfil.php', $dados);
+	}
+
 	public function listar(){
 		$this->load->model('alunos_model');
 		$alunos = $this->alunos_model->getAll();
 		$dados = array('alunos' => $alunos);
 		$this->template->load('template', 'aluno/lista.php', $dados);
 	}
+
+	public function filtro(){
+		$this->load->model('alunos_model');
+		$alunos = $this->alunos_model->getBySearch($this->input->post('busca'));
+		$dados = array('alunos' => $alunos);
+		$this->template->load('template', 'aluno/lista.php', $dados);
+		}
 
 	public function excluir(){
 		$this->load->model('alunos_model');

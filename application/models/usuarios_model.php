@@ -8,19 +8,27 @@
 				$this->db->where('email', $email);
 				$this->db->where('senha', $senha);
 				$user = $this->db->get('usuarios')->result_array();
-				if($user){
+				if($user != null){
 					return $user;
-				}else{
+				} else{
 					$this->db->where('email', $email);
 					$this->db->where('senha', $senha);
 					$user = $this->db->get('alunos')->result_array();
-					return $user;
+					if($user != null){
+						return $user;
+					}else{
+						$this->db->where('email', $email);
+						$this->db->where('senha', $senha);
+						$user = $this->db->get('treinadores')->result_array();
+						return $user;
+					}
+					
 				}
 		}
 
 		public function getById($id){
 			$this->db->where('id', $id);
-			return $this->db->get('usuarios')->row_array();
+			return $this->db->get('usuarios')->result_array();
 		}
 
 		public function add($user){

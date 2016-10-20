@@ -1,4 +1,20 @@
+<div class="row">
+<?php
+echo form_open('alunos/filtro');
+?>
+  <div class="input-group input-group-md">
+    <input type="text" class="form-control" autocomplete="off" id="busca" placeholder="Nome" name="busca">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+  </div>
+<?php
+echo form_close();
 
+if(!$alunos){
+  echo ("<script> alert('nenhum aluno encontrado'); </script>");
+}
+?>
+
+</div>
 <?php
 foreach ($alunos as $aluno) {
 ?>

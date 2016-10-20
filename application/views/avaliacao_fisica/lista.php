@@ -111,7 +111,10 @@ foreach ($opcoes as $opcao) {
       <?php
       $this->load->model('usuarios_model');
       $user = $this->usuarios_model->getById($avaliacao['idUsuario']);
-      echo $user['nome']." "; echo $avaliacao['data']?>
+      foreach ($user as $users) {
+        echo $users['nome']." "; echo $avaliacao['data'];
+      }
+      ?>
       <a class="btn btn-warning" href="<?php echo(site_url('avaliacao_fisica/editar/'.$avaliacao['id'])); ?>" > <i class="glyphicon glyphicon-pencil"></i></a>
       <a class="btn btn-success" href="<?php echo(site_url('avaliacao_fisica/atualizar/'.$avaliacao['idAluno'])); ?>" > <i class="glyphicon glyphicon-refresh"></i></a>
       </div>
