@@ -6,7 +6,6 @@ foreach ($opcoes as $opcao)
 ?>
     <h4><b> <?php echo $opcao['nome']; ?> </b></h4>
     <canvas id="<?php echo $opcao['nome']; ?>" width="100%" height="50%"></canvas>
-
     <script>
         var ctx = document.getElementById("<?php echo $opcao['nome']; ?>");
         var myChart = new Chart(ctx, {

@@ -3,6 +3,7 @@
 		public $nome;
 		public $sobrenome;
 		public $idade;
+		public $genero;
 		public $cpf;
 		public $telefone;
 		public $email;
@@ -53,7 +54,7 @@
 		*/
 		public function getById($id){
 			$this->db->where('id', $id);
-			return $this->db->get('alunos')->result_array();
+			return $this->db->get('alunos')->row_array();
 		}
 
 		public function getBySearch($busca){

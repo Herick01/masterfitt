@@ -36,8 +36,9 @@ foreach ($alunos as $aluno) {
   <ul id="<?php echo($aluno['id']); ?>" class="collapse">
     <div class="row list-group">
     <li class="list-group-item col-lg-12 col-xs-12"><h4><b><?php echo ("Dados Pessoais"); ?></b></h4></li>
-    <li class="list-group-item col-lg-6 col-xs-5"><?php echo ("Idade: ".$aluno['idade']); ?></li>
-    <li class="list-group-item col-lg-6 col-xs-7"><?php echo ("CPF: ".$aluno['cpf']); ?></li>
+    <li class="list-group-item col-lg-4 col-xs-4"><?php echo ("Idade: ".$aluno['idade']); ?></li>
+    <li class="list-group-item col-lg-4 col-xs-4"><?php echo ("Genero: ".$aluno['genero']); ?></li>
+    <li class="list-group-item col-lg-4 col-xs-4"><?php echo ("CPF: ".$aluno['cpf']); ?></li>
     </div>
 
     <div class="row list-group">

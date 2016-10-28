@@ -219,7 +219,7 @@
                     </li>
                     <?php if($this->session->userdata('user_nivel')==1||$this->session->userdata('user_nivel')==2){ ?>
                     <li>
-                        <a href="<?php echo(site_url('treinos/cadastrar')); ?>"><i class="glyphicon glyphicon-edit"></i> Gerar Treinos</a>
+                        <a href="<?php echo(site_url('treinos/listar')); ?>"><i class="glyphicon glyphicon-edit"></i> Treinos</a>
                     </li>
                     <?php
                     }

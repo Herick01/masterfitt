@@ -21,12 +21,18 @@
     </div>
   </div>
   <div class="col-lg-2 form-group">
+    <h4> Genero: </h4>
+    <div class="form-group">
+      <input type="text" maxlength="1" class="form-control" name="genero" placeholder="genero" required>
+    </div>
+  </div>
+  <div class="col-lg-2 form-group">
     <h4> CPF: </h4>
     <div class="form-group">
       <input type="text" maxlength="11" class="form-control" name="cpf" placeholder="CPF" required>
     </div>
   </div>
-  <div class="col-lg-8 form-group">
+  <div class="col-lg-6 form-group">
     <h4> Telefone: </h4>
     <div class="form-group">
       <input type="tel" maxlength="10" class="form-control" name="telefone" placeholder="telefone" required>
