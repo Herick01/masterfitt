@@ -91,5 +91,10 @@
 		public function add($dados){
 			$this->db->insert('avaliacoes', $dados['avaliacao']);
 		}
+
+		public function remove($id){
+			$this->db->where('id', $id);
+			$this->db->delete('avaliacoes');
+		}
 	}
 ?>

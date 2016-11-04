@@ -49,5 +49,10 @@
 			$this->db->order_by('idAluno', 'asc');
 			return $this->db->get('treinos')->result_array();
 		}
+
+		public function remove($id){
+			$this->db->where('id', $id);
+			$this->db->delete('treinos');
+		}
 	}
 ?>

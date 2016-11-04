@@ -60,13 +60,7 @@ class Treinadores extends CI_Controller {
 		$this->treinadores_model->add($treinador);
 		$this->listar();	
 	}
-			
-
-	public function logOut(){
-		$this->session->sess_destroy();
-		redirect('usuarios/index');
-	}
-
+	
 	private function recuperaDados(){
 		$treinador;
 		$treinador['nome'] = $this->input->post('nome');

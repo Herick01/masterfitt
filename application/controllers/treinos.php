@@ -87,41 +87,38 @@ class Treinos extends CI_Controller {
 		$this->load->model('treinos_model');
 		$this->load->model('exercicios_model');
 		$this->load->model('alunos_model');
-		$alunos = $this->treinos_model->getIdAluno();
-		foreach ($alunos as $aluno) {
-			$diaDaSemana[] = $this->treinos_model->getWeekDay($aluno['idAluno']);
+		$alunos = $this->alunos_model->getForTreinos();
+		for($x=0; $x<sizeof($alunos); $x++) {
+			if($this->treinos_model->getWeekDay($alunos[$x]['id'])){
+				$diaDaSemana[$x] = $this->treinos_model->getWeekDay($alunos[$x]['id']);
+			}else{
+				$diaDaSemana[$x] = null;
+			}
 		}
-
+		
+		
 		for($x=0; $x< sizeof($alunos); $x++) {
 			$aluno = $alunos[$x];
-			foreach ($diaDaSemana[$x] as $dia) {
-				foreach ($dia as $data){
-					$treinos[$x][] = $this->treinos_model->getByDateAndIdAluno($aluno['idAluno'], $data);			
-				}
-			}
-		}
-
-		foreach ($alunos as $aluno) {
-			$al[] = $this->alunos_model->getById($aluno['idAluno']);
-		}
-
-		for($x=0;$x<1;$x++){
-			$exercicio[] = $this->exercicios_model->getById($treinos[0][0][0]['idExercicio']);
-		}
-
-		foreach ($treinos as $treino) {
-			foreach ($treino as $tr) {
-				foreach ($tr as $t) {
-					if(!in_array($this->exercicios_model->getById($t['idExercicio']), $exercicio)){
-						$exercicio[] = $this->exercicios_model->getById($t['idExercicio']);
+			if($diaDaSemana[$x]){
+				foreach ($diaDaSemana[$x] as $dia) {
+					foreach ($dia as $data){
+						$treinos[$x][] = $this->treinos_model->getByDateAndIdAluno($aluno['id'], $data);			
 					}
 				}
+			}else{
+				$treinos[$x][] = null;
 			}
+		}
+
+
+		for($x=0;$x<1;$x++){
+
+			$exercicio[] = $this->exercicios_model->getAll();
 		}
 
 		for ($x=0; $x<sizeof($alunos);$x++){
 			$dados[] = array (
-				'aluno' => $al[$x],
+				'aluno' => $alunos[$x],
 				'dia' => $diaDaSemana[$x],
 				'treino' => $treinos[$x]
 			);
@@ -129,9 +126,13 @@ class Treinos extends CI_Controller {
 		
 		$dados = array ('dados' => $dados, 'exercicios' => $exercicio);
 		$this->template->load('template', 'treinos/lista.php', $dados);
+	}
 
-
-
+	public function excluir(){
+		$id = $this->uri->segment(3);
+		$this->load->model('treinos_model');
+		$this->treinos_model->remove($id);
+		$this->listar();
 	}
 }
 ?>

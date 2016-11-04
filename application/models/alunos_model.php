@@ -57,6 +57,11 @@
 			return $this->db->get('alunos')->row_array();
 		}
 
+		public function getForTreinos(){
+			$this->db->order_by('nome', 'asc');
+			return $this->db->get('alunos')->result_array();
+		}
+
 		public function getBySearch($busca){
 			$this->db->like('nome', $busca);
 			$alunos = $this->db->get('alunos')->result_array();

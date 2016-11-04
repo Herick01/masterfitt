@@ -117,9 +117,39 @@ foreach ($opcoes as $opcao) {
       ?>
       <a class="btn btn-warning" href="<?php echo(site_url('avaliacao_fisica/editar/'.$avaliacao['id'])); ?>" > <i class="glyphicon glyphicon-pencil"></i></a>
       <a class="btn btn-success" href="<?php echo(site_url('avaliacao_fisica/atualizar/'.$avaliacao['idAluno'])); ?>" > <i class="glyphicon glyphicon-refresh"></i></a>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="<?php echo('#modal'.$avaliacao['id']); ?>"><i class="glyphicon glyphicon-remove"></i></button>
       </div>
       </div>
       </div>
+
+
+
+
+<!--alerta de exclusão-->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="<?php echo ("modal".$avaliacao['id']); ?>">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#ffaaaa">
+        <h4 class="modal-title" id="myModalLabel"><b>Atenção</b></h4>
+      </div>
+      <div class="modal-body" style="content">
+      <p><?php echo ("Você tem certeza que quer excluir esta avaliação?"); ?></p>
+      <div class="container-fluid">
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <a class="btn btn-success" href="<?php echo(site_url('avaliacao_fisica/excluir/'.$avaliacao['id'])); ?>" >
+        Confirmar </a>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Cancelar</button>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
       <?php
     }
     ?>

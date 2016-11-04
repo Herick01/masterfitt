@@ -60,12 +60,6 @@ class Alunos extends CI_Controller {
 		$this->alunos_model->add($aluno);
 		$this->listar();	
 	}
-			
-
-	public function logOut(){
-		$this->session->sess_destroy();
-		redirect('usuarios/index');
-	}
 
 	private function recuperaDados(){
 		$aluno;

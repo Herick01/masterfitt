@@ -15,6 +15,8 @@ class Usuarios extends CI_Controller {
 	}
 
 	public function perfil(){
+		$this->load->model('login_model');
+		$this->login_model->logged();
 		$this->load->model('usuarios_model');
 		$usuarios = $this->usuarios_model->getById($this->session->userdata('id_user'));
 		$dados = array('usuarios' => $usuarios);
@@ -46,9 +48,9 @@ class Usuarios extends CI_Controller {
 	}
 
 	public function logOut(){
-		$this->session->sess_destroy();
-		redirect('usuarios/index');
-	}
+			$this->session->sess_destroy();
+			redirect('usuarios/index');
+		}
 
 	public function cadastro(){
 			$dados = array(

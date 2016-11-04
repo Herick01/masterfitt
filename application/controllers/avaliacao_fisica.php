@@ -114,6 +114,13 @@ class Avaliacao_fisica extends CI_Controller {
 		$this->template->load('template', 'avaliacao_fisica/atualizar.php', $dados);
 	}
 
+	public function excluir(){
+		$id = $this->uri->segment(3);
+		$this->load->model('avaliacao_fisica_model');
+		$this->avaliacao_fisica_model->remove($id);
+		$this->listar();
+	}
+
 	/*
 	metodo que envia o novo peso e altura para a model cadastrar no banco
 	*/
