@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Avaliacao_fisica extends CI_Controller {
+class Tablet extends CI_Controller {
 
 	/*
 	metodo principal do controller
@@ -10,8 +10,7 @@ class Avaliacao_fisica extends CI_Controller {
 	*/
 	public function index()
 	{
-		$this->login_model->logged();
-		$this->listar();
+		$this->load->view('tablet/index');
 	}
 
 	/*
@@ -174,25 +173,5 @@ class Avaliacao_fisica extends CI_Controller {
 		$this->template->load('template', 'avaliacao_fisica/relatorio.php', $dados);
 	}
 	
-
-	/*
-	metodo que retorna uma variavel com os dados
-	que foram preenchidos no formulário
-	*/
-	private function recuperaDados(){
-		$avaliacao;
-		$avaliacao['altura'] = $this->input->post('altura');
-		$avaliacao['peso'] = $this->input->post('peso');
-		$avaliacao['doenca'] = $this->input->post('doenca');
-		$avaliacao['coracao'] = $this->input->post('coracao');
-		$avaliacao['hipertensao'] = $this->input->post('hipertensao');
-		$avaliacao['dorNoPeito'] = $this->input->post('dorNoPeito');
-		$avaliacao['fuma'] = $this->input->post('fuma');
-		$avaliacao['lesao'] = $this->input->post('lesao');
-		$avaliacao['medicamento'] = $this->input->post('medicamento');
-		$avaliacao['suplemento'] = $this->input->post('suplemento');
-		$avaliacao['tonteirasDesmaio'] = $this->input->post('tonteirasDesmaio');
-		return $avaliacao;
-	}
 }
 ?>

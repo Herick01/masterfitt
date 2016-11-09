@@ -17,6 +17,7 @@
     	<div class="section">
     		<div class="container">
     			<div class="row">
+                
     				<div class="col-md-7">
     					<div class="jumbotron" style="background-color: #aaaaaa">
     						<h1 class="text-center" style="font-family: Cooper Black">Master Fitt</h1>
@@ -31,7 +32,7 @@
                             <?php echo form_open('usuarios/login'); ?>
         						<div class="form-group">
         							<label class="control-label">Email</label>
-        							<input type="email" class="form-control" name="emailLogin" placeholder="Email" required>
+        							<input type="email" class="form-control" name="emailLogin" placeholder="Email" autocomplete="off" required>
         						</div>
         						<div class="form-group">
         							<label class="control-label">Password</label>
@@ -78,17 +79,17 @@
     		<div class="container">
     			<div class="row">
     				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    					<p>CodeStar 2016 - Três Cachoeiras/RS
+    					CodeStar 2016 - Três Cachoeiras/RS
     					<br>Fone:
     					<br>(51) 8150-0635 WhatsApp
     					<br>E-mail:
     					<br>herick.mengue@hotmail.com
-    					</p>
+                        <br><a class="btn btn-lg btn-primary" href="<?php echo(site_url('tablet/index'));  ?>"><i class="glyphicon glyphicon-fullscreen"></i></a>
     				</div>
     				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    					<h1 class="text-right">Siga-nos</h1>
+    					<p class="text-right" style="font-size: 250%">Siga-nos</p>
     					<p class="text-right">Acompanhe nas redes Sociais<br>
-    					</p>
+    					
     					<div class="row">
     						<div class="text-right">
     							<a href="https://www.linkedin.com/in/herick-mengue" target="_blank">
@@ -126,5 +127,9 @@
         }
     }
         
-
+<script>
+function isMobile() {
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER['HTTP_USER_AGENT']);
+}
+</script>
 </script>

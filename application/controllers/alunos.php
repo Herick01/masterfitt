@@ -5,58 +5,69 @@ class Alunos extends CI_Controller {
 
 	public function index()
 	{
+		$this->login_model->logged();
 		$this->listar();
 	}
 
 	public function perfil(){
-		$this->load->model('alunos_model');
+		$this->login_model->logged();
 		$alunos = $this->alunos_model->getById($this->session->userdata('id_user'));
 		$dados = array('alunos' => $alunos);
 		$this->template->load('template', 'aluno/perfil.php', $dados);
 	}
 
 	public function listar(){
-		$this->load->model('alunos_model');
-		$alunos = $this->alunos_model->getAll();
-		$dados = array('alunos' => $alunos);
-		$this->template->load('template', 'aluno/lista.php', $dados);
+		$this->login_model->logged();
+		if($this->session->userdata('user_nivel')!=3){
+			$alunos = $this->alunos_model->getAll();
+			$dados = array('alunos' => $alunos);
+			$this->template->load('template', 'aluno/lista.php', $dados);
+		}else{
+			redirect('errors/html/error_404');
+		}
 	}
 
 	public function filtro(){
-		$this->load->model('alunos_model');
-		$alunos = $this->alunos_model->getBySearch($this->input->post('busca'));
-		$dados = array('alunos' => $alunos);
-		$this->template->load('template', 'aluno/lista.php', $dados);
+		$this->login_model->logged();
+		if($this->session->userdata('user_nivel')!=3){
+			$alunos = $this->alunos_model->getBySearch($this->input->post('busca'));
+			$dados = array('alunos' => $alunos);
+			$this->template->load('template', 'aluno/lista.php', $dados);
+			}else{
+				redirect('errors/html/error_404');
+			}
 		}
 
 	public function excluir(){
-		$this->load->model('alunos_model');
+		$this->login_model->logged();
 		$alunoId = $this->uri->segment(3);
 		$this->alunos_model->remove($alunoId);
 		$this->listar();
 	}
 
 	public function cadastrar(){
+		$this->login_model->logged();
 		$this->template->load('template', 'aluno/cadastro.php');
 	}
 
 	public function editar(){
-		$this->load->model('alunos_model');
+		$this->login_model->logged();
 		$alunoId = $this->uri->segment(3);
 		$dados = array('aluno' => $this->alunos_model->getById($alunoId));
 		$this->template->load('template', 'aluno/editar.php', $dados);
 	}
 
 	public function alterar(){
+		$this->login_model->logged();
 		$aluno = $this->recuperaDados();
 		$aluno['id'] = $this->uri->segment(3);
-		$this->load->model('alunos_model');
 		$this->alunos_model->update($aluno);
 		$this->listar();	
 	}
+	
 	public function novo(){
+		$this->login_model->logged();
 		$aluno = $this->recuperaDados();
-		$this->load->model('alunos_model');
 		$this->alunos_model->add($aluno);
 		$this->listar();	
 	}

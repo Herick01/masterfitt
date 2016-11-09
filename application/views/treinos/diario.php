@@ -10,20 +10,24 @@ if ($dados != null){
       <!-- List group -->
       <table class="table table-hover table-responsive col-lg-12 col-xs-12">
         <?php
-        foreach ($dado['treino'] as $treino) {
-          foreach ($exercicios as $exercicio) {
-            if($exercicio['id'] == $treino['idExercicio'])
-            {
-            ?>
-              <tr><th><h4><b><?php echo ($exercicio['nome']);?></b></h></th></tr>
-            <?php
+        if($dado['treino']){
+          foreach ($dado['treino'] as $treino) {
+            foreach ($exercicios as $exercicio) {
+              if($exercicio['id'] == $treino['idExercicio'])
+              {
+              ?>
+                <tr><th><h4><b><?php echo ($exercicio['nome']);?></b></h></th></tr>
+              <?php
+              }
             }
-            ?>
-          <?php
           }
-          ?>
+        }else{
+              ?>
+          <div class="jumbotron" style="background-color: #aaaaaa">
+            <font style="text-align: center"> <h3><b> Não forão encontrados treinos para hoje </b></h3></font>
+          </div>
         <?php
-        }
+          }
         ?>
       </table>
     </div>

@@ -11,7 +11,9 @@ foreach ($opcoes as $opcao) {
     </div>
     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-5">
     <button class="btn btn-default" data-toggle="collapse" data-target="<?php echo('#'.$opcao['id']); ?>"><i class="glyphicon glyphicon-menu-down"></i></button>
+    <?php if($this->session->userdata('user_nivel')!=3){ ?>
     <a class="btn btn-default" href="<?php echo(site_url('avaliacao_fisica/cadastrar/'.$opcao['id'])); ?>" > <i class="glyphicon glyphicon-plus"></i></a>
+    <?php } ?>
     </div>
   </div>
   <!-- List group -->
@@ -24,52 +26,52 @@ foreach ($opcoes as $opcao) {
       <div class="row list-group ">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <li class="list-group-item col-lg-12 col-xs-12"><h4><b><?php echo ("Avaliação Fisica"); ?></b></h4></li>
-      <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-12"><?php echo ("Peso: ".$avaliacao['peso']); ?></li>
-      <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-12"><?php echo ("Altura: ".$avaliacao['altura']); ?></li>
-      <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-12"><?php echo ("IMC: ".$avaliacao['imc']); ?></li>
-      <li class="list-group-item col-lg-6 col-md-6 col-sm-6 col-xs-12"><?php echo ("Problema Cardiaco: ".$avaliacao['coracao']); ?></li>
-      <li class="list-group-item col-lg-6 col-md-6 col-sm-6 col-xs-12"><?php echo ("Doença Genetica: ".$avaliacao['doenca']); ?></li>
+      <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Peso: ".$avaliacao['peso']); ?></li>
+      <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Altura: ".$avaliacao['altura']); ?></li>
+      <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("IMC: ".$avaliacao['imc']); ?></li>
+      <li class="list-group-item col-lg-6 col-md-6 col-sm-12 col-xs-12"><?php echo ("Problema Cardiaco: ".$avaliacao['coracao']); ?></li>
+      <li class="list-group-item col-lg-6 col-md-6 col-sm-12 col-xs-12"><?php echo ("Doença Genetica: ".$avaliacao['doenca']); ?></li>
       <?php 
         if($avaliacao['hipertensao'] == 0){
       ?>
-        <li class="list-group-item col-lg-4 col-md-4 col-sm-6 col-xs-12"><?php echo ("Hipertensão: Não possui"); ?></li>
+        <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Hipertensão: Não possui"); ?></li>
       <?php
       } else{
       ?>
-        <li class="list-group-item col-lg-4 col-md-4 col-sm-6 col-xs-12"><?php echo ("Hipertensão: Possui"); ?></li>
+        <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Hipertensão: Possui"); ?></li>
       <?php
       }
       ?>
       <?php 
         if($avaliacao['dorNoPeito'] == 0){
       ?>
-        <li class="list-group-item col-lg-4 col-md-4 col-sm-6 col-xs-12"><?php echo ("Dor no peito: Não possui"); ?></li>
+        <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Dor no peito: Não possui"); ?></li>
       <?php
       } else{
       ?>
-        <li class="list-group-item col-lg-4 col-md-4 col-sm-6 col-xs-12"><?php echo ("Dor no peito: Possui"); ?></li>
+        <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Dor no peito: Possui"); ?></li>
       <?php
       }
       ?>
       <?php 
         if($avaliacao['lesao'] == 0){
       ?>
-        <li class="list-group-item col-lg-4 col-md-4 col-sm-5 col-xs-12"><?php echo ("Lesionado: Não"); ?></li>
+        <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Lesionado: Não"); ?></li>
       <?php
       } else{
       ?>
-        <li class="list-group-item col-lg-4 col-md-4 col-sm-5 col-xs-12"><?php echo ("Lesionado: Sim"); ?></li>
+        <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12"><?php echo ("Lesionado: Sim"); ?></li>
       <?php
       }
       ?>
       <?php 
         if($avaliacao['tonteirasDesmaio'] == 0){
       ?>
-        <li class="list-group-item col-lg-6 col-md-6 col-sm-7 col-xs-12"><?php echo ("Tonteiras ou Desmaios: Não possui"); ?></li>
+        <li class="list-group-item col-lg-6 col-md-6 col-sm-12 col-xs-12"><?php echo ("Tonteiras ou Desmaios: Não possui"); ?></li>
       <?php
       } else{
       ?>
-        <li class="list-group-item col-lg-6 col-md-6 col-sm-7 col-xs-12"><?php echo ("Tonteiras ou Desmaios: Possui"); ?></li>
+        <li class="list-group-item col-lg-6 col-md-6 col-sm-12 col-xs-12"><?php echo ("Tonteiras ou Desmaios: Possui"); ?></li>
       <?php
       }
       ?>
@@ -114,10 +116,14 @@ foreach ($opcoes as $opcao) {
       foreach ($user as $users) {
         echo $users['nome']." "; echo $avaliacao['data'];
       }
+      if($this->session->userdata('user_nivel')!=3){
       ?>
-      <a class="btn btn-warning" href="<?php echo(site_url('avaliacao_fisica/editar/'.$avaliacao['id'])); ?>" > <i class="glyphicon glyphicon-pencil"></i></a>
-      <a class="btn btn-success" href="<?php echo(site_url('avaliacao_fisica/atualizar/'.$avaliacao['idAluno'])); ?>" > <i class="glyphicon glyphicon-refresh"></i></a>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="<?php echo('#modal'.$avaliacao['id']); ?>"><i class="glyphicon glyphicon-remove"></i></button>
+        <a class="btn btn-warning" href="<?php echo(site_url('avaliacao_fisica/editar/'.$avaliacao['id'])); ?>" > <i class="glyphicon glyphicon-pencil"></i></a>
+        <a class="btn btn-success" href="<?php echo(site_url('avaliacao_fisica/atualizar/'.$avaliacao['idAluno'])); ?>" > <i class="glyphicon glyphicon-refresh"></i></a>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="<?php echo('#modal'.$avaliacao['id']); ?>"><i class="glyphicon glyphicon-remove"></i></button>
+      <?php
+      }
+      ?>
       </div>
       </div>
       </div>

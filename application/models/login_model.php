@@ -7,10 +7,5 @@
 				$this->logOut();
 			}
 		}
-
-		public function logOut(){
-			$this->session->sess_destroy();
-			redirect('usuarios/index');
-		}
 	}
 ?>

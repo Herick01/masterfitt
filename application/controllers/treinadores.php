@@ -5,58 +5,60 @@ class Treinadores extends CI_Controller {
 
 	public function index()
 	{
+		$this->login_model->logged();
 		$this->listar();
 	}
 
 	public function listar(){
-		$this->load->model('treinadores_model');
+		$this->login_model->logged();
 		$treinadores = $this->treinadores_model->getAll();
 		$dados = array('treinadores' => $treinadores);
 		$this->template->load('template', 'treinador/lista.php', $dados);
 	}
 
 	public function perfil(){
-		$this->load->model('treinadores_model');
+		$this->login_model->logged();
 		$treinadores = $this->treinadores_model->getById($this->session->userdata('id_user'));
 		$dados = array('treinadores' => $treinadores);
 		$this->template->load('template', 'treinador/perfil.php', $dados);
 	}
 
 	public function filtro(){
-		$this->load->model('treinadores_model');
+		$this->login_model->logged();
 		$treinadores = $this->treinadores_model->getBySearch($this->input->post('busca'));
 		$dados = array('treinadores' => $treinadores);
 		$this->template->load('template', 'treinador/lista.php', $dados);
 		}
 
 	public function excluir(){
-		$this->load->model('treinadores_model');
+		$this->login_model->logged();
 		$treinadorId = $this->uri->segment(3);
 		$this->treinadores_model->remove($treinadorId);
 		$this->listar();
 	}
 
 	public function cadastrar(){
+		$this->login_model->logged();
 		$this->template->load('template', 'treinador/cadastro.php');
 	}
 
 	public function editar(){
-		$this->load->model('treinadores_model');
+		$this->login_model->logged();
 		$treinadorId = $this->uri->segment(3);
 		$dados = array('treinador' => $this->treinadores_model->getById($treinadorId));
 		$this->template->load('template', 'treinador/editar.php', $dados);
 	}
 
 	public function alterar(){
+		$this->login_model->logged();
 		$treinador = $this->recuperaDados();
 		$treinador['id'] = $this->uri->segment(3);
-		$this->load->model('treinadores_model');
 		$this->treinadores_model->update($treinador);
 		$this->listar();	
 	}
 	public function novo(){
+		$this->login_model->logged();
 		$treinador = $this->recuperaDados();
-		$this->load->model('treinadores_model');
 		$this->treinadores_model->add($treinador);
 		$this->listar();	
 	}

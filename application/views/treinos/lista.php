@@ -20,7 +20,7 @@ foreach ($dados as $dado) {
     if($dado['dia']){
       foreach ($dado['dia'] as $dia) {
     ?>
-        <div class="list-group-item col-lg-12">
+        <div class="list-group-item col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="list-group-item col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #aaaaaa">
             <?php
             switch($dia['diaDaSemana']){
@@ -56,29 +56,32 @@ foreach ($dados as $dado) {
             foreach ($treino as $tr) {
               if($dia['diaDaSemana'] == $tr['diaDaSemana']){ 
           ?>
-                <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12" >
                   <?php
-                    $ex = $exercicios[0];
-                    foreach ($ex as $exercicio) {
+                    foreach ($exercicios as $exercicio) {
                       if ($exercicio['id'] == $tr['idExercicio']) {
                         echo $exercicio['nome'];
                       }
                     }
                   ?>
                 </li>
-                <li class="list-group-item col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+                <li class="list-group-item col-lg-2 col-md-2 col-sm-4 col-xs-4" >
                   Series: <?= $tr['series'] ?>
                 </li>
-                <li class="list-group-item col-lg-2 col-md-2 col-sm-2 col-xs-2" >
+                <li class="list-group-item col-lg-2 col-md-2 col-sm-4 col-xs-4" >
                   Rep.:<?= $tr['repeticoes'] ?>
                 </li>
-                <li class="list-group-item col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                  QTD: <?= $tr['quantidade'] ?>
+                <li class="list-group-item col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                  Peso: <?= $tr['quantidade'] ?> kg
                 </li>
+                <?php
+                  if($this->session->userdata('user_nivel')!=3){
+                ?>
                 <li class="list-group-item col-lg-2 col-md-2 col-sm-2 col-xs-2">
                   <a type="button" data-toggle="modal" data-target="<?php echo('#modal'.$tr['id']); ?>" style="color:red"><i class="glyphicon glyphicon-remove"></i></a>
                 </li>
           <?php
+                }
               }
           ?>
 
