@@ -5,9 +5,9 @@
   <h3><b><?php echo ($alunos['nome']." ".$alunos['sobrenome']); ?></b></h3>
     <div class="row list-group">
     <li class="list-group-item col-lg-12 col-xs-12"><h4><b><?php echo ("Dados Pessoais"); ?></b></h4></li>
-    <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-5"><?php echo ("Idade: ".$alunos['idade']); ?></li>
-    <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-12"><?php echo ("genero: ".$alunos['genero']); ?></li>
-    <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-7"><?php echo ("CPF: ".$alunos['cpf']); ?></li>
+    <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-6"><?php echo ("Idade: ".$alunos['idade']); ?></li>
+    <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-6"><?php echo ("genero: ".$alunos['genero']); ?></li>
+    <li class="list-group-item col-lg-4 col-md-4 col-sm-4 col-xs-12"><?php echo ("CPF: ".$alunos['cpf']); ?></li>
     </div>
 
     <div class="row list-group">
@@ -36,7 +36,6 @@
         <?php echo ("Cep: ".$alunos['cep']); ?>
       </li>
       <li class="list-group-item col-lg-12 col-xs-12" style="text-align: right">
-      <a class="btn btn-warning" href="<?php echo(site_url('alunos/editar/'.$alunos['id'])); ?>" >Editar <i class="glyphicon glyphicon-pencil"></i></a>
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="<?php echo('#modal'.$alunos['id']); ?>">Deletar <i class="glyphicon glyphicon-remove"></i></button>
     </li>
     </div>

@@ -56,7 +56,7 @@ foreach ($dados as $dado) {
             foreach ($treino as $tr) {
               if($dia['diaDaSemana'] == $tr['diaDaSemana']){ 
           ?>
-                <li class="list-group-item col-lg-4 col-md-4 col-sm-12 col-xs-12" >
+                <li class="list-group-item col-lg-5 col-md-5 col-sm-12 col-xs-12" >
                   <?php
                     foreach ($exercicios as $exercicio) {
                       if ($exercicio['id'] == $tr['idExercicio']) {
@@ -68,7 +68,7 @@ foreach ($dados as $dado) {
                 <li class="list-group-item col-lg-2 col-md-2 col-sm-4 col-xs-4" >
                   Series: <?= $tr['series'] ?>
                 </li>
-                <li class="list-group-item col-lg-2 col-md-2 col-sm-4 col-xs-4" >
+                <li class="list-group-item col-lg-2 col-md-2 col-sm-3 col-xs-3" >
                   Rep.:<?= $tr['repeticoes'] ?>
                 </li>
                 <li class="list-group-item col-lg-2 col-md-2 col-sm-4 col-xs-4">
@@ -77,7 +77,7 @@ foreach ($dados as $dado) {
                 <?php
                   if($this->session->userdata('user_nivel')!=3){
                 ?>
-                <li class="list-group-item col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <li class="list-group-item col-lg-1 col-md-1 col-sm-1 col-xs-1">
                   <a type="button" data-toggle="modal" data-target="<?php echo('#modal'.$tr['id']); ?>" style="color:red"><i class="glyphicon glyphicon-remove"></i></a>
                 </li>
           <?php

@@ -4,6 +4,7 @@ foreach ($opcoes as $opcao)
 {
     if($opcao['avaliacao']!=null && sizeof($opcao['avaliacao'])>=2){
 ?>
+<div class="col-md-6">
     <h4><b> <?php echo $opcao['nome']; ?> </b></h4>
     <canvas id="<?php echo $opcao['nome']; ?>" width="100%" height="50%"></canvas>
     <script>
@@ -11,7 +12,7 @@ foreach ($opcoes as $opcao)
         var myChart = new Chart(ctx, {
         type: 'line',
             data: {
-                labels: [
+                labels: [ 
                     <?php 
             	    foreach ($opcao['avaliacao'] as $avaliacao)
                     {
@@ -25,7 +26,7 @@ foreach ($opcoes as $opcao)
                         <?php
             	        foreach($opcao['avaliacao'] as $avaliacao)
             	        {
-            		      echo ($avaliacao['imc'].",");
+            		       echo ($avaliacao['imc'].",");
             	        }
                         ?>
                     ],
@@ -49,6 +50,7 @@ foreach ($opcoes as $opcao)
     }
 });
 </script>
+</div>
 <?php
 } 
 }

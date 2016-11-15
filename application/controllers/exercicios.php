@@ -28,8 +28,16 @@ class Exercicios extends CI_Controller {
 	public function excluir(){
 		$this->login_model->logged();
 		$id = $this->uri->segment(3);
-		$this->exercicios_model->remove($id);
-		$this->cadastrar();
+		$exercicio = $this->exercicios_model->getById($id);
+		$treino = $this->treinos_model->getByExercice($exercicio);
+		if ($treino == null){
+			$this->exercicios_model->remove($id);
+			$this->cadastrar();
+		} else{
+			echo"<script> alert('Este exercicio está em uso'); </script>";
+			$this->cadastrar();
+		}
+		
 	}
 
 	public function cadastrar(){

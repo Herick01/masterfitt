@@ -13,7 +13,6 @@ foreach ($usuarios as $usuario) {
 
     <div class="row list-group">
       <li class="list-group-item col-lg-12 col-xs-12" style="text-align: right">
-      <a class="btn btn-warning" href="<?php echo(site_url('usuarios/editar/'.$usuario['id'])); ?>" >Editar <i class="glyphicon glyphicon-pencil"></i></a>
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="<?php echo('#modal'.$usuario['id']); ?>">Deletar <i class="glyphicon glyphicon-remove"></i></button>
     </li>
     </div>

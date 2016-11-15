@@ -43,6 +43,12 @@
 			return $this->db->get('treinos')->result_array();
 		}
 
+		public function getByExercice($exercicio){
+			$this->db->distinct();
+			$this->db->where('idExercicio', $exercicio['id']);
+			return $this->db->get('treinos')->row_array();
+		}
+
 		public function getIdAluno(){
 			$this->db->select('idAluno');
 			$this->db->distinct();

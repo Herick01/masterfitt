@@ -57,6 +57,15 @@
 			return $this->db->get('alunos')->row_array();
 		}
 
+		/*
+		metodo que retorna um aluno do banco de dados
+		pelo seu nome
+		*/
+		public function getByName($nome){
+			$this->db->like('nome', $nome);
+			return $this->db->get('alunos')->row_array();
+		}
+
 		public function getForTreinos(){
 			$this->db->order_by('nome', 'asc');
 			return $this->db->get('alunos')->result_array();

@@ -16,7 +16,14 @@ if ($dados != null){
               if($exercicio['id'] == $treino['idExercicio'])
               {
               ?>
-                <tr><th><h4><b><?php echo ($exercicio['nome']);?></b></h></th></tr>
+                <tr>
+                  <th>
+                    <h4><b><?php echo ($exercicio['nome']);?></b></h>
+                  </th>
+                  <th><h4><b><?php echo ('series: '.$treino['series']);?></b></h4></th>
+                  <th><h4><b><?php echo ('rep.: '.$treino['repeticoes']);?></b></h4></th>
+                  <th><h4><b><?php echo ('peso: '.$treino['quantidade']);?></b></h4></th>
+                </tr>
               <?php
               }
             }
