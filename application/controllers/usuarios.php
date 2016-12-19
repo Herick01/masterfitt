@@ -12,6 +12,13 @@ class Usuarios extends CI_Controller {
 		$this->load->view('usuarios/index');
 	}
 
+	public function excluir(){
+		$this->login_model->logged();
+		$usuarioId = $this->uri->segment(3);
+		$this->usuarios_model->remove($usuarioId);
+		$this->logOut();
+	}
+
 	/*
 	metodo que chama a pagina com o perfil do usuário
 	*/
@@ -59,7 +66,6 @@ class Usuarios extends CI_Controller {
 	permissão de administrador
 	*/
 	public function cadastro(){
-		$this->login_model->logged();
 		$dados = array(
 			'nome' => $this->input->post('nomeCadastro'),
 			'sobrenome' => $this->input->post('sobrenomeCadastro'),

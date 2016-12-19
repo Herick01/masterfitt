@@ -7,5 +7,14 @@
 				$this->logOut();
 			}
 		}
+
+		/*
+	método que finaliza a sessão e redireciona
+	o usuário para a tela de login
+	*/
+	public function logOut(){
+		$this->session->sess_destroy();
+		redirect('usuarios/index');
+	}
 	}
 ?>

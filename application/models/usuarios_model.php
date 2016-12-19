@@ -34,5 +34,10 @@
 		public function add($user){
 			$this->db->insert('usuarios', $user);
 		}
+
+		public function remove($user){
+			$this->db->where('id', $user);
+			$this->db->delete('usuarios');
+		}
 	}
 ?>
